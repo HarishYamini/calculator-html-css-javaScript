@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/afb08a4175.js" crossorigin="anonymous"></script>
+    <title>Calculator</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        font-style: sans-serif;
+        box-sizing: border-box;
+        outline: none;
+
+    }
+    .container{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .calculator{
+
+        padding: 15px;
+        border-radius: 30px;
+        background-color: rgb(22, 21, 21);
+        display: grid;
+        grid-template-columns: repeat(4,70px);
+        box-shadow: 6px 6px 10px -1px rgba(255,255,255,0.2),
+				-6px -6px 10px -1px rgba(0,0,0,0.15)
+
+    }
+    input{
+        grid-column: span 4;
+        width: 265px;
+        height: 100px;
+        border-radius: 30px;
+        border: none;
+        color: aliceblue;
+        background-color: rgb(22, 21, 21);
+        font-size: xx-large;
+        
+        margin-bottom: 20px;
+        margin-top: 20px;
+        box-shadow:inset 6px 6px 6px -1px rgba(0, 0, 0, 0.966);
+        box-shadow:inset -6px -6px 4px -1px rgba(214, 213, 213, 0.15);
+       
+				
+        
+    }
+   
+    button{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        
+        margin: 8px;
+        color: aliceblue;
+        background-color: rgb(56, 53, 53);
+        border: none;
+        font-size: large;
+        box-shadow: 6px 6px 6px -1px rgba(255,255,255,0.2),
+				-6px -6px 6px -1px rgba(0,0,0,0.15)
+
+
+    }
+    button:hover{
+        background-color: rgb(37, 36, 36);
+    }
+    #lenth{
+        width: 120px;
+        border-radius: 30px;
+    }
+    .orange{
+        background-color: orange;
+
+    }
+    .orange:hover{
+        background-color: rgb(255, 145, 0);
+    }
+    .gray{
+        background-color: rgb(189, 184, 184);
+        color: black;
+    }
+    .gray:hover{
+        background-color: rgb(117, 117, 117);;
+    }
+    
+</style>
+<body>
+    <div class="container">
+        <div class="calculator">
+        <input type="text" placeholder="0" id="output">
+        <button onclick="cancel()" class="gray">AC</button>
+        <button onclick="Del()" class="gray">DEL</button>
+        <button onclick="display('%')" class="gray"><i class="fa-solid fa-percent"></i></button>
+        <button onclick="display('/')" class="orange"><i class="fa-solid fa-divide"></i></button>
+        <button onclick="display('7')">7</button>
+        <button onclick="display('8')">8</button>
+        <button onclick="display('9')">9</button>
+        <button onclick="display('*')" class="orange"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="display('4')">4</button>
+        <button onclick="display('5')">5</button>
+        <button onclick="display('6')">6</button>
+        <button onclick="display('-')" class="orange"><i class="fa-solid fa-minus"></i></button>
+        <button onclick="display('1')">1</button>
+        <button onclick="display('2')">2</button>
+        <button onclick="display('3')">3</button>
+        <button onclick="display('+')" class="orange"><i class="fa-solid fa-plus"></i></button>
+        <button onclick="display('0')" >0</button>
+        <button onclick="display('.')">.</button>
+        <button onclick="sum()" class="orange" id="lenth"><i class="fa-solid fa-equals"></i></button>
+
+    </div>
+</div>
+<script>
+    var output=document.getElementById("output");
+    function display(num){
+        output.value+= num;
+    }
+    function sum(){
+        try{
+            output.value =eval(output.value);
+
+        }
+        catch(err){
+            alert("invalid input value");
+        }
+    }
+    function cancel(){
+        output.value ="";
+
+    }
+    function Del(){
+        output.value=output.value.slice(0,-1);
+    }
+
+</script>
+</body>
+</html>
